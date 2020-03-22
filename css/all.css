@@ -1,0 +1,264 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #293B29;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container {
+  background-color: #3d5a45;
+  height: 360px;
+  width: 360px;
+  border-radius: 60px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 25px;
+}
+
+.container .clock {
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.6);
+  height: 100%;
+  position: relative;
+  background-color: #293B29;
+}
+
+.container .clock .hour {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 25px;
+}
+
+.container .clock .hour::after, .container .clock .hour::before {
+  content: "";
+  height: 1px;
+  width: 24px;
+  background-color: #ff7600;
+}
+
+.container .clock .hour-12 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  padding: 0 55px;
+}
+
+.container .clock .hour-12 .after, .container .clock .hour-12 .before {
+  color: white;
+}
+
+.container .clock .hour-24 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  padding: 0 5px;
+}
+
+.container .clock .hour-24 .after, .container .clock .hour-24 .before {
+  color: white;
+}
+
+.container .clock .min {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  padding: 0 34px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.container .clock .min::after, .container .clock .min::before {
+  content: '.';
+  color: white;
+}
+
+.container .clock .min:nth-child(3n+1) {
+  padding: 0 30px;
+}
+
+.container .clock .min:nth-child(3n+1)::after, .container .clock .min:nth-child(3n+1)::before {
+  content: '✦';
+  color: #ff7600;
+  font-size: 12px;
+}
+
+.container .clock .hourNeedle {
+  background-color: #fff;
+  width: 6px;
+  height: 60px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+.container .clock .hourNeedle::after {
+  content: "";
+  position: absolute;
+  width: 1.5px;
+  height: 15px;
+  background-color: #000;
+  top: 3px;
+  left: 2.5px;
+}
+
+.container .clock .minNeedle {
+  background-color: #ff7600;
+  width: 6px;
+  height: 80px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+  border-radius: 0 0 10px 10px;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+.container .clock .minNeedle::after {
+  content: "";
+  background-color: #fff;
+  bottom: 4px;
+  left: 2.2px;
+  height: 30px;
+  width: 1.5px;
+  position: absolute;
+}
+
+.container .clock .minNeedle::before {
+  content: '';
+  border-radius: 50%;
+  bottom: 4px;
+  left: 1.5px;
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  background-color: #fff;
+}
+
+.container .clock .secNeedle {
+  position: absolute;
+  z-index: 3;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+}
+
+.container .clock .secNeedle .straight {
+  width: 1px;
+  height: 50px;
+  background: #b1ff00;
+}
+
+.container .clock .secNeedle .right {
+  width: 9px;
+  height: 9px;
+  margin: 1px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-right: 1px solid #b1ff00;
+  border-top: 1px solid #b1ff00;
+}
+
+.container .clock .secNeedle .left {
+  width: 9px;
+  height: 9px;
+  margin: 1px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-left: 1px solid #b1ff00;
+  border-bottom: 1px solid #b1ff00;
+}
+
+.container .clock .secNeedle .circle {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #b1ff00;
+  border-radius: 50%;
+}
+
+.container .clock .secNeedle .circle::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #b1ff00;
+}
+/*# sourceMappingURL=all.css.map */
